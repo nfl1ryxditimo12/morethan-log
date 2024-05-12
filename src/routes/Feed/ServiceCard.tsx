@@ -12,17 +12,19 @@ const ServiceCard: React.FC = () => {
         <Emoji>🌟</Emoji> Service
       </StyledTitle>
       <StyledWrapper>
-        {CONFIG.projects.map((project, idx) => (
-          <a
-            key={idx}
-            href={`${project.href}`}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <AiFillCodeSandboxCircle className="icon" />
-            <div className="name">{project.name}</div>
-          </a>
-        ))}
+        {(CONFIG.projects as Array<{ name: string; href: string }>).map(
+          (project, idx) => (
+            <a
+              key={idx}
+              href={`${project.href}`}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <AiFillCodeSandboxCircle className="icon" />
+              <div className="name">{project.name}</div>
+            </a>
+          )
+        )}
       </StyledWrapper>
     </>
   )
